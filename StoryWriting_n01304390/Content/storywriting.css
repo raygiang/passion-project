@@ -94,7 +94,7 @@ textarea {
     border-radius: 10px;
     background-color: #ECD77D;
     margin: 1em 1%;
-    padding: 1em 0;
+    padding: 1em;
     display: flex;
     flex-flow: row wrap;
     text-align: center;
