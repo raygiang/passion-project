@@ -1,0 +1,33 @@
+﻿@model IEnumerable<StoryWriting_n01304390.Models.Writer>
+
+@{
+    ViewBag.Title = "AddStory";
+}
+
+<h2>Add a Story</h2>
+
+<!-- Form to create a new story -->
+<form method="POST" action="/Story/Create">
+    <div class="form-row">
+        <label for="story-title">Story Title:</label>
+        <input type="text" id="story-title" name="new_story_title" />
+    </div>
+    <div class="form-row">
+        <label for="story-desc">Story Description:</label>
+        <textarea id="story-desc" name="new_story_desc" maxlength="1000"></textarea>
+    </div>
+    <div class="form-row">
+        <label for="writer-username">Writer:</label>
+        <select id="writer-username" name="new_writer_username">
+            <!-- Creates a dropdown list with all the writers -->
+            @foreach (var writer in Model)
+            {
+                <option value="@writer.WriterID">@writer.Username</option>
+            }
+        </select>
+    </div>
+    <div class="form-row">
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+

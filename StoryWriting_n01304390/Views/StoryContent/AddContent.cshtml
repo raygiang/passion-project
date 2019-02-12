@@ -1,0 +1,28 @@
+﻿@model StoryWriting_n01304390.Models.ViewModels.AddOrEditViewModel
+
+@{
+    ViewBag.Title = "AddContent";
+}
+
+<h2>Add Content</h2>
+
+<!-- Form to add story content -->
+<form method="POST" action="/StoryContent/Create/@Model.Story.StoryID">
+    <div class="form-row">
+        <label for="content-writer">Writer:</label>
+        <select id="content-writer" name="new_content_writer">
+            @foreach (var writer in Model.Writers)
+            {
+                <option value="@writer.WriterID">@writer.Username</option>
+            }
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="story-content">Story Content:</label>
+        <textarea id="story-content" name="new_story_content" maxlength="100"></textarea>
+    </div>
+    <div class="form-row">
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+

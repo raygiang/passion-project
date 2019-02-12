@@ -1,0 +1,49 @@
+﻿@model StoryWriting_n01304390.Models.Story
+
+@{
+    ViewBag.Title = "ViewStory";
+}
+
+<h2>@Model.StoryTitle</h2>
+
+<!-- Lists the information regarding the Story specified in the model, along with all the contents relating to this story
+    in a table -->
+
+<span class="link-area">@Html.ActionLink("Edit this Story", "EditStory/" + Model.StoryID, "Story")</span>
+<span class="link-area">@Html.ActionLink("Delete this Story", "DeleteStory/" + Model.StoryID, "Story")</span>
+
+<div>Story Description: @Model.StoryDescription</div>
+<div>Story Creator: @Html.ActionLink(Model.StoryCreator.Username, "ViewWriter/" + Model.StoryCreator.WriterID, "Writer")</div>
+
+@if (Model.HasFeatureImage == true)
+{
+    <div class="image-container">
+        <img src="~/images/featureImages/@(Model.StoryID).@(Model.ImageType)" alt="Story Feature Image" />
+    </div>
+}
+
+<h3>Story Content</h3>
+<span class="link-area">@Html.ActionLink("Read Whole Story", "ReadStory/" + Model.StoryID, "Story")</span>
+<span class="link-area">@Html.ActionLink("Add Content", "AddContent/" + Model.StoryID, "StoryContent")</span>
+
+<table>
+    <thead>
+        <tr>
+            <th>Content Writer</th>
+            <th>Content</th>
+            <th>Edit Content</th>
+            <th>Delete Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var content in Model.StoryContents)
+        {
+            <tr>
+                <td>@Html.ActionLink(content.ContentWriter.Username, "ViewWriter/" + content.ContentWriter.WriterID, "Writer")</td>
+                <td>@content.Content</td>
+                <td>@Html.ActionLink("Edit Content", "EditContent/" + content.StoryContentID, "StoryContent")</td>
+                <td>@Html.ActionLink("Delete Content", "DeleteContent/" + content.StoryContentID, "StoryContent")</td>
+            </tr>
+        }
+    </tbody>
+</table>

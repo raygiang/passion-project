@@ -3,40 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Passion Project</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link type="text/css" href="~/Content/storywriting.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <header id="header">
+        <div class="page-wrapper flex-container">
+            <h1 id="site-name">@Html.ActionLink("Collaborative Story Writing", "Index", "Story")</h1>
+            <nav id="main-nav">
+                <ul>
+                    <li>@Html.ActionLink("Story List", "Index", "Story")</li>
+                    <li>@Html.ActionLink("Writer List", "Index", "Writer")</li>
                 </ul>
-            </div>
+            </nav>
         </div>
-    </div>
-    <div class="container body-content">
+    </header>
+
+    <div class="page-wrapper">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <footer id="footer">
+        <div class="page-wrapper">
+            <p>Passion Project - Raymond Giang - n01304390</p>
+        </div>
+    </footer>
 </body>
 </html>

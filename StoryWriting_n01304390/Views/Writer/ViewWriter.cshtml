@@ -1,0 +1,25 @@
+﻿@model StoryWriting_n01304390.Models.Writer
+
+@{
+    ViewBag.Title = "ViewWriter";
+}
+
+<h2>@Model.Username</h2>
+<!-- Display information about the specific writer specified in the model -->
+
+<span class="link-area">@Html.ActionLink("Edit this Writer", "EditWriter/" + Model.WriterID, "Writer")</span>
+<span class="link-area">@Html.ActionLink("Delete this Writer", "DeleteWriter/" + Model.WriterID, "Writer")</span>
+
+<div class="info-area">
+    <div>First Name: @Model.FirstName</div>
+    <div>Last Name: @Model.LastName</div>
+</div>
+
+<h3>Stories Started: </h3>
+<ul>
+    @foreach (var story in Model.Stories)
+    {
+        <li>@Html.ActionLink(story.StoryTitle, "ViewStory/" + story.StoryID, "Story")</li>
+    }
+</ul>
+

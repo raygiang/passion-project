@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/StoryWriting_n01304390/images/featureImages/2.png
+/StoryWriting_n01304390/images/featureImages/3.png
+/StoryWriting_n01304390/images/featureImages/6.png

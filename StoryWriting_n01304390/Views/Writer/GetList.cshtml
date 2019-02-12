@@ -1,0 +1,23 @@
+﻿@model IEnumerable<StoryWriting_n01304390.Models.Writer>
+
+@{
+    ViewBag.Title = "GetList";
+}
+
+<h2>Writer List</h2>
+<span class="link-area">@Html.ActionLink("Add a Writer", "AddWriter", "Writer")</span>
+
+<!-- Display a list of all writers in the database -->
+<div class="flex-container">
+    @foreach (var writer in Model)
+    {
+        <div class="writer-card">
+            <h3>@Html.ActionLink(writer.Username, "ViewWriter/" + writer.WriterID, "Writer")</h3>
+            <span>@writer.FirstName @writer.LastName</span>
+            <div>
+                @Html.ActionLink("Edit Writer", "EditWriter/" + writer.WriterID, "Writer") | 
+                @Html.ActionLink("Delete Writer", "DeleteWriter/" + writer.WriterID, "Writer")
+            </div>
+        </div>
+    }
+</div>

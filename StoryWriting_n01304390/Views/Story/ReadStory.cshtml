@@ -1,0 +1,25 @@
+﻿@model StoryWriting_n01304390.Models.Story
+
+@{
+    ViewBag.Title = "ReadStory";
+}
+
+<h2>@Html.ActionLink(@Model.StoryTitle, "ViewStory/" + Model.StoryID, "Story")</h2>
+
+<div>Story Description: @Model.StoryDescription</div>
+<div>Story Creator: @Html.ActionLink(Model.StoryCreator.Username, "ViewWriter/" + Model.StoryCreator.WriterID, "Writer")</div>
+
+@if (Model.HasFeatureImage == true)
+{
+    <div class="image-container">
+        <img src="~/images/featureImages/@(Model.StoryID).@(Model.ImageType)" />
+    </div>
+}
+
+<!-- Prints out all the contents relating to this story in one <p> -->
+<p>
+    @foreach (var content in Model.StoryContents)
+    {
+        <span>@content.Content </span>
+    }
+</p>

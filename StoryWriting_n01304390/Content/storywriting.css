@@ -1,0 +1,149 @@
+﻿/************************************************
+ * TABLE OF CONTENTS
+ * =================
+ * 1. Default Overrides
+ * 2. Use Anywhere Classes
+ * 3. Header Styling
+ * 4. Footer Styling
+************************************************/
+
+/* 1. Default Overrides */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    font-family: 'Concert One', cursive;
+    background-color: #BDE1C6;
+}
+
+a {
+    color: #0E2D9A;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+table {
+    margin: 1em 0;
+}
+
+table td, th {
+    border: 1px solid #000;
+    padding: 0.5em;
+}
+
+textarea {
+    height: 80px;
+    width: 300px;
+    resize: none;
+}
+
+/* 2. Use Anywhere Classes */
+
+.page-wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.link-area a {
+    display: inline-block;
+    padding: 0.5em;
+    background-color: #FDC726;
+    border-radius: 10px;
+    color: #000;
+}
+
+.info-area {
+    margin: 1em 0;
+    font-size: 18px;
+}
+
+.form-row {
+    margin-bottom: 0.5em;
+}
+
+.writer-card {
+    width: 31%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #ECD77D;
+    margin: 1em 1%;
+    padding-bottom: 1em;
+}
+
+.story-card {
+    width: 48%;
+    border-radius: 10px;
+    background-color: #ECD77D;
+    margin: 1em 1%;
+    padding: 1em 0;
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.feat-image, .story-info {
+    flex: 50%;
+    margin: auto;
+}
+
+.image-container {
+    max-width: 350px;
+}
+
+/* 3. Header Styling */
+
+#header {
+    background-color: #313B32;
+}
+
+#header a {
+    color: #ECD77D;
+    text-decoration: none;
+}
+
+#header a:hover {
+    font-weight: bold;
+}
+
+#site-name {
+    flex: 2 0 0;
+}
+
+#main-nav {
+    flex: 1 0 0;
+    text-align: right;
+}
+
+#main-nav li {
+    display: inline-block;
+    margin: 0.5em 0 0 2em;
+    font-size: 20px;
+}
+
+/* 4. Footer Styling */
+
+#footer {
+    background-color: #313B32;
+    color: #ECD77D;
+    text-align: right;
+    padding: 0.5em;
+}

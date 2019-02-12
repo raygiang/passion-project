@@ -1,0 +1,37 @@
+﻿@model IEnumerable<StoryWriting_n01304390.Models.Story>
+
+@{
+    ViewBag.Title = "GetList";
+}
+
+<h2>Story List</h2>
+<span class="link-area">@Html.ActionLink("Add a Story", "AddStory", "Story")</span>
+
+<!-- Displays a list of all the stories in the database -->
+<div class="flex-container">
+    @foreach (var story in Model)
+    {
+        <div class="story-card">
+            <div class="feat-image">
+                @if (story.HasFeatureImage == true)
+                {
+                    <img src="~/images/featureImages/@(story.StoryID).@(story.ImageType)" alt="Story Feature Image" />
+                }
+                else
+                {
+                    <span>No Feature Image</span>
+                }
+            </div>
+            <div class="story-info">
+                <h3>@Html.ActionLink(story.StoryTitle, "ViewStory/" + story.StoryID, "Story")</h3>
+                <span>Started By: @Html.ActionLink(story.StoryCreator.Username, "ViewWriter/" + story.StoryCreator.WriterID, "Writer")</span>
+                <div>Description: @story.StoryDescription</div>
+
+                <div>
+                    @Html.ActionLink("Edit Story", "EditStory/" + story.StoryID, "Story") |
+                    @Html.ActionLink("Delete Story", "DeleteStory/" + story.StoryID, "Story")
+                </div>
+            </div>
+        </div>
+    }
+</div>

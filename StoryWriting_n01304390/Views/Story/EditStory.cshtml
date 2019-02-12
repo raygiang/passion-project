@@ -1,0 +1,57 @@
+﻿@model StoryWriting_n01304390.Models.ViewModels.AddOrEditViewModel
+
+@{
+    ViewBag.Title = "EditStory";
+}
+
+<h2>Edit Story</h2>
+
+<!-- Form to edit an existing story -->
+<form method="POST" action="/Story/Update/@Model.Story.StoryID" enctype="multipart/form-data">
+    <div class="form-row">
+        <label for="story-title">Story Title:</label>
+        <input type="text" id="story-title" name="new_story_title" value="@Model.Story.StoryTitle" />
+    </div>
+    <div class="form-row">
+        <h3>Feature Image: </h3>
+        <!-- Displays the feature image if it exists -->
+        @if (Model.Story.HasFeatureImage == true)
+        {
+            <div class="image-container">
+                <img src="~/images/featureImages/@(Model.Story.StoryID).@(Model.Story.ImageType)" />
+            </div>
+        }
+        else
+        {
+            <div>No Image</div>
+        }
+    </div>
+    <div class="form-row">
+        <label for="story-feature-image">Change Feature Image: </label>
+        <input type="file" id="story-feature-image" name="story_feature_image" />
+    </div>
+    <div class="form-row">
+        <label for="story-desc">Story Description:</label>
+        <textarea id="story-desc" name="new_story_desc" maxlength="1000">@Model.Story.StoryDescription</textarea>
+    </div>
+    <div class="form-row">
+        <label for="writer-username">Writer:</label>
+        <select id="writer-username" name="new_writer_username">
+            <!-- Creates a dropdown list with all the writers, current writer wil be selected -->
+            @foreach (var writer in Model.Writers)
+            {
+                if (writer.Username == Model.Story.StoryCreator.Username)
+                {
+                    <option value="@writer.WriterID" selected>@writer.Username</option>
+                }
+                else
+                {
+                    <option value="@writer.WriterID">@writer.Username</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-row">
+        <input type="submit" value="Submit" />
+    </div>
+</form>

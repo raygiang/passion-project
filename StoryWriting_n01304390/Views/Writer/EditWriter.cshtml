@@ -1,0 +1,26 @@
+﻿@model StoryWriting_n01304390.Models.Writer
+
+@{
+    ViewBag.Title = "EditWriter";
+}
+
+<h2>Edit Writer</h2>
+
+<!-- Form to edit an existing writer -->
+<form method="POST" action="/Writer/Update/@Model.WriterID">
+    <div class="form-row">
+        <label for="writer-first-name">First Name:</label>
+        <input type="text" id="writer-first-name" name="new_writer_first_name" value="@Model.FirstName" />
+    </div>
+    <div class="form-row">
+        <label for="writer-last-name">Last Name:</label>
+        <input type="text" id="writer-last-name" name="new_writer_last_name" value="@Model.LastName" />
+    </div>
+    <div class="form-row">
+        <label for="writer-username">Username:</label>
+        <input type="text" id="writer-username" name="new_writer_username" value="@Model.Username" />
+    </div>
+    <div class="form-row">
+        <input type="submit" value="Submit" />
+    </div>
+</form>
